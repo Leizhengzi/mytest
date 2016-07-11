@@ -2,8 +2,7 @@
 
 echo "hello worafda";
 
-echo "fdsafdaa";
+echo "safdaa";
 
-echo "dfafdafa";
 
 ?>
