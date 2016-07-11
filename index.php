@@ -1,10 +1,7 @@
 <?php
 
-echo "hello worafda";
+echo "hello world";
 
-echo "safdaa";
-
-echo "fdafdsa";
 
 
 ?>
