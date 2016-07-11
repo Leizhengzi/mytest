@@ -1,8 +1,5 @@
 <?php
 
-echo "hello worafda";
-
-echo "safdaa";
-
+echo "hello world";
 
 ?>
