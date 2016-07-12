@@ -75,7 +75,7 @@ github.com  远程平台：
 
 回到客户端：
 
-     ssh-keygen -t rss
+     ssh-keygen -t rsa
      将pub文件内容copy 到 authorized_keys中
      chmod 600 authorized_keys   在改一下所属者
      chmod 700 .ssh
