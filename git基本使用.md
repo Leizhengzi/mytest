@@ -106,6 +106,9 @@ git查看提交日志，显现详细修改内容，如被误删的内容，可�
 
 
 
+git log --since=xxxxx --until=xxxxx 可查看从一个时间段的提交日志
+git log .file 可单查看一个文件提交的信息
+git reset 版本号 ‘file’ 可单独回滚一个文件
 
 
 
