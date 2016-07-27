@@ -69,33 +69,5 @@
 		</body>
 		</html>
 
-:contains  选择所有包含指定文本的元素 区分大小写 可以是后代元素
-		<!DOCTYPE html>
-		<html>
-			<head>
-			  <script src="http://code.jquery.com/jquery-latest.js"></script>
-			</head>
-			<body>
-			 
-			<div>John Resig</div>
-			 
-			<div>George Martin</div>
-			<div>Malcom John Sinclair</div>
-			<div>J. Ohn</div>
-			 
-			<script>
-			$("div:contains('John')").css("text-decoration", "underline");</script>
-			 
-			</body>
-		</html>
-
-
-$.ajax(url, settings)
-
-url: string 类型
-setting: PlainObject {键／值}组成的ajax 请求设置
-	type: 
-	url:
-	data:
-	success:
-	dataType
+。prop()
+http://www.css88.com/jqapi-1.9/prop/
