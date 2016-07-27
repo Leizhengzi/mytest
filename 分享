@@ -48,9 +48,54 @@
 		</body>
 		</html>
 
+:header 选择所有标题元素
+	 	.filter(":header")
+	 	<!DOCTYPE html>
+		<html>
+		<head>
+		  <style>
+		  body { font-size: 10px; font-family: Arial; }
+		  h1, h2 { margin: 3px 0; }
+		  </style>
+		  <script src="http://code.jquery.com/jquery-latest.js"></script>
+		</head>
+		<body>
+		  <h1>Header 1</h1>
+		 
+		  <p>Contents 1</p>
+		  <h2>Header 2</h2>
+		  <p>Contents 2</p>
+		<script>$(":header").css({ background:'#CCC', color:'blue' });</script>
+		</body>
+		</html>
+
+:contains  选择所有包含指定文本的元素 区分大小写 可以是后代元素
+		<!DOCTYPE html>
+		<html>
+			<head>
+			  <script src="http://code.jquery.com/jquery-latest.js"></script>
+			</head>
+			<body>
+			 
+			<div>John Resig</div>
+			 
+			<div>George Martin</div>
+			<div>Malcom John Sinclair</div>
+			<div>J. Ohn</div>
+			 
+			<script>
+			$("div:contains('John')").css("text-decoration", "underline");</script>
+			 
+			</body>
+		</html>
+
 
 $.ajax(url, settings)
 
 url: string 类型
 setting: PlainObject {键／值}组成的ajax 请求设置
-	accepts: 取决于数据类型
+	type: 
+	url:
+	data:
+	success:
+	dataType
