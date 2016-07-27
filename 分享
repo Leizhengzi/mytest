@@ -1,0 +1,56 @@
+:even  选择索引值为偶数的元素， 从0开始计数  所以：even 选择器史选择第一个元素， 第三个元素 
+	   .filter(":even")
+
+	    <!DOCTYPE html>
+		<html>
+			<head>
+			  <style>
+			  table {
+			    background:#eeeeee;
+			  }
+			  </style>
+			  <script src="http://code.jquery.com/jquery-latest.js"></script>
+			</head>
+			<body>
+			  <table border="1">
+			    <tr><td>Row with Index #0</td></tr>
+			    <tr><td>Row with Index #1</td></tr>
+			 
+			    <tr><td>Row with Index #2</td></tr>
+			    <tr><td>Row with Index #3</td></tr>
+			  </table>
+			  <script>$("tr:even").css("background-color", "#bbbbff");</script>
+			</body>
+		</html>
+
+:odd   选择索引值为奇数的元素， 从0开始计数  所以：odd 选择的是第二个元素， 第四个元素
+	   。filter(":odd")   
+
+	   	<!DOCTYPE html>
+		<html>
+			<head>
+			  <style>
+			table {
+			  background:#f3f7f5;
+			}
+			</style>
+			  <script src="http://code.jquery.com/jquery-latest.js"></script>
+			</head>
+			<body>
+			  <table border="1">
+			  <tr><td>Row with Index #0</td></tr>
+			  <tr><td>Row with Index #1</td></tr>
+			 
+			  <tr><td>Row with Index #2</td></tr>
+			  <tr><td>Row with Index #3</td></tr>
+			</table>
+			<script>$("tr:odd").css("background-color", "#bbbbff");</script>
+		</body>
+		</html>
+
+
+$.ajax(url, settings)
+
+url: string 类型
+setting: PlainObject {键／值}组成的ajax 请求设置
+	accepts: 取决于数据类型
