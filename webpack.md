@@ -10,7 +10,7 @@ WEBPACK：
 安装WEBPACK
 	
 	你需要安装有node.js   安装链接： https://nodejs.org/
-	打开你的终端: windows 按ctrl + R，输入cmd，回车打开终端输入以下命令，linux或者mac打开系统终端即可。下面$只是代表一个标识，无意义，只输入其后面内容即可
+	打开你的终端: windows 按win + R，输入cmd，回车打开终端输入以下命令，linux或者mac打开系统终端即可。下面$只是代表一个标识，无意义，只输入其后面内容即可
 	$ npm install webpack -g
 	提示：这个命令让webpack命令可以使用
 	
