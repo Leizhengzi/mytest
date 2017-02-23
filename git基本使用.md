@@ -43,6 +43,7 @@ github.com  远程平台：
      git remote remove name 移除远程仓库
      git remote rename 重命名远程连接仓库  相当于移除＋创建
      git fetch 更新远程分支
+     git push origin --delete 远程分支名字
 
 远程：git fork
 
