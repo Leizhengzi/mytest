@@ -1,4 +1,4 @@
-send_sms.php  <==>  发送短信验证码
+send_sms.php  <==>  发送短信验证码   <==>  request: post
 	
 	receive: 
 			string  phone  <==> 手机号码
@@ -6,7 +6,7 @@ send_sms.php  <==>  发送短信验证码
 			success  <==> { errno: 0, errmsg: "" }
 			failed   <==> { errno: 4031, errmsg: 短信发送失败 }
 	
-register.php  <==>  注册第一步
+register.php  <==>  注册第一步  <==> request: post
 
 	receive:
 			string mobile  <==> 手机号码
@@ -18,7 +18,7 @@ register.php  <==>  注册第一步
 			              { errno: 4032|4033|4034, errmsg: 用户注册失败 },
 			              { errno: 500, errmsg: 服务器异常 }
 			              
-set_password.php  <==>  注册第二步|修改密码第二步, 设置密码
+set_password.php  <==>  注册第二步|修改密码第二步, 设置密码 <==> request: post
 
 	receive:
 			int    userid   <==> 用户id
@@ -27,7 +27,7 @@ set_password.php  <==>  注册第二步|修改密码第二步, 设置密码
 			success  <==> { errno: 0, errmsg: "" } 
 			failed   <==> { errno: 4031, errmsg: 设置密码失败 }
 			
-login.php  <==>  登录
+login.php  <==>  登录 <==> request: post
 
 	receive:
 			string  mobile   <==> 手机号码
@@ -39,7 +39,7 @@ login.php  <==>  登录
 			              { errno: 404, errmsg: 用户不存在 },
 			              { errno: 4032, errmsg: 密码错误 }
 			            
-validate_user <==> 修改密码第一步, 验证用户信息
+validate_user <==> 修改密码第一步, 验证用户信息 <==>: get
 
 	receive:
 			string  mobile <==> 手机号码
