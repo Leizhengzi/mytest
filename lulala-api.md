@@ -39,7 +39,7 @@ login.php  <==>  登录 <==> request: post
 			              { errno: 404, errmsg: 用户不存在 },
 			              { errno: 4032, errmsg: 密码错误 }
 			            
-validate_user <==> 修改密码第一步, 验证用户信息 <==>: get
+validate_user <==> 修改密码第一步, 验证用户信息 <==> request: get
 
 	receive:
 			string  mobile <==> 手机号码
