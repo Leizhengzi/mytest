@@ -55,7 +55,23 @@ logout.php  <==> 退出登录 <==> request: post
 			int    userid  <==> 用户id
 		
 	return:
-			success <==> { errno: 0, errmsg: ""}
+			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 用户不存在 },
-							{ errno: 500, errmsg: 服务器错误}
+							{ errno: 500, errmsg: 服务器错误 }
 			
+trace.php  <==> 实时追踪 <==> request: get
+
+	receive:
+			string imei <==> 设备imei号
+			
+	return:
+			success <==> { errno: 0, errmsg: "", sites: xx }
+			failed  <==> { errno: 404, errmsg: 设备不存在 }
+path_back.php <==> 路径回放 <==> request: get
+
+	receive:
+			string imei <==> 设备imei号
+			
+	return:
+			success <==> { errno: 0, errmsg: "", sites: xx }
+			failed  <==> { errno: 404, errmsg: 设备不存在 }
