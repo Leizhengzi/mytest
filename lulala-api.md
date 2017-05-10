@@ -57,7 +57,7 @@ logout.php  <==> 退出登录 <==> request: post
 	return:
 			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 用户不存在 },
-							{ errno: 500, errmsg: 服务器错误 }
+			             { errno: 500, errmsg: 服务器错误 }
 			
 trace.php  <==> 实时追踪 <==> request: get
 
@@ -75,3 +75,12 @@ path_back.php <==> 路径回放 <==> request: get
 	return:
 			success <==> { errno: 0, errmsg: "", sites: xx }
 			failed  <==> { errno: 404, errmsg: 设备不存在 }
+bind_sensor.php <==> 绑定设备 <==> request: post
+
+	receive:
+			int    userid <==> 用户id
+			string imei   <==> 设备imei号
+	return: 
+			success <==> { errno: 0, errmsg: "" }
+			failed  <==> { errno: 404, errmsg: 设备不存在 }
+						   { errno: 
