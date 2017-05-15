@@ -83,4 +83,22 @@ bind_sensor.php <==> 绑定设备 <==> request: post
 	return: 
 			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 设备不存在 }
-						   { errno: 
+			             { errno: 403, errmsg: 绑定失败 }
+			             { errno: 500, errmsg: 服务器错误 }
+unbind_sensor.php <==> 解绑设备 <==> request: post
+	
+	receive:
+			int    userid <==> 用户id
+			string imei   <==> 设备imei号
+	return:
+			success <==> { errno: 0, errmsg: "" }
+			failed  <==> { errno: 404, errmsg: 设备不存在 }
+			             { errno: 403, errmsg: 解绑失败 }
+			             { errno: 500, errmsg: 服务器错误 }
+journey_statistics.php <==> 路程统计 <==> request: get
+
+	receive:
+			string imei <==> 设备imei号
+	return:
+			success: <==> { errno: 0, errmsg: "", data: xx }
+			              { errno: 404, errmsg: 设备不存在 }
