@@ -35,7 +35,7 @@ login.php  <==>  登录 <==> request: post
 			number  note     <==> 短信验证码 【可选, 快速登录必需】
 			string  token    <==> 设备标识符  
 	return:
-			success  <==> { errno: 0, errmsg: "", data: ['userinfo': xx, 'encryptinfo': xx, 'sessionid': xx, 'token': xx] }(如果有token,即此设备为要被踢下)
+			success  <==> { errno: 0, errmsg: "", data: ['imei':xx, 'userinfo': xx, 'encryptinfo': xx, 'sessionid': xx, 'token': xx] }(如果有token,即此设备为要被踢下)
 			failed   <==> { errno: 4031, errmsg: 验证码错误 },
 			              { errno: 404, errmsg: 用户不存在 },
 			              { errno: 4032, errmsg: 密码错误 }
@@ -71,6 +71,7 @@ path_back.php <==> 路径回放 <==> request: get
 
 	receive:
 			string imei <==> 设备imei号
+			date	time <==> 指定查看日期
 			
 	return:
 			success <==> { errno: 0, errmsg: "", sites: xx }
@@ -99,6 +100,7 @@ journey_statistics.php <==> 路程统计 <==> request: get
 
 	receive:
 			string imei <==> 设备imei号
+			date   time <==> 指定查看日期
 	return:
 			success: <==> { errno: 0, errmsg: "", data: xx }
 			              { errno: 404, errmsg: 设备不存在 }
