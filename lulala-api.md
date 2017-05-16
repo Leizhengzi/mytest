@@ -102,5 +102,24 @@ journey_statistics.php <==> 路程统计 <==> request: get
 			string imei <==> 设备imei号
 			date   time <==> 指定查看日期
 	return:
-			success: <==> { errno: 0, errmsg: "", data: xx }
-			              { errno: 404, errmsg: 设备不存在 }
+			success <==> { errno: 0, errmsg: "", data: xx }
+			failed  <==> { errno: 404, errmsg: 设备不存在 }
+electric_fence.php <==> 设置电子围栏 <==> request: post
+	
+	receive:
+			string imei   <==> 设备imei号
+			int    radius <==> 半径
+	return:
+			success <==> { errno: 0, errmsg: "" }
+			failed  <==> { errno: 404, errmsg: 设备不存在 }
+			             { errno: 4031, errmsg: 没有数据 }
+			             { errno: 500, errmsg: 服务器错误 }
+discard_electric_fence.php <==> 取消电子围栏 <==> request: post
+
+	receive: 
+			string imei <==> 设备imei号
+	return:
+			success <==> { errno: 0, errmsg: "" }
+			failed  <==> { errno: 404, errmsg: 设备不存在 }
+			             { errno: 403, errmsg: 取消失败 }
+							
