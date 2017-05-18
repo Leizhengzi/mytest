@@ -65,7 +65,7 @@ trace.php  <==> 实时追踪 <==> request: get
 			string imei <==> 设备imei号
 			
 	return:
-			success <==> { errno: 0, errmsg: "", sites: xx }
+			success <==> { errno: 0, errmsg: "", data:['sites':xxx, 'fence':xxx}
 			failed  <==> { errno: 404, errmsg: 设备不存在 }
 path_back.php <==> 路径回放 <==> request: get
 
