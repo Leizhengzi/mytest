@@ -122,4 +122,9 @@ discard_electric_fence.php <==> 取消电子围栏 <==> request: post
 			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 设备不存在 }
 			             { errno: 403, errmsg: 取消失败 }
-							
+upgrade_app <==> 检测是否要升级应用 <==> request: get
+	
+	receive: 
+			none
+	return:
+			succes <==> { errno: 0, errmsg: "", data:[ 'version': xxx..]
