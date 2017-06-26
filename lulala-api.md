@@ -128,3 +128,11 @@ upgrade_app <==> 检测是否要升级应用 <==> request: get
 			none
 	return:
 			succes <==> { errno: 0, errmsg: "", data:[ 'version': xxx..]
+kick.php <==> 检测是否需要被踢下线
+	
+	receive: 
+			int 	 uid	<==> 用户id(未登录时不需要传)
+			string token	<==> 设备token
+	return:
+			success <==> { errno: 0, data:{ status: Y(踢下线) N(不踢）}
+			failed  <==> { errno: 4030, errmsg: 未登录 }
