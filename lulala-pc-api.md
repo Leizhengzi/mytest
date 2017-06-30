@@ -8,9 +8,9 @@ register_mobileno.php <==> 注册手机号 <==> request: post
 	return:
 			success	<==> { errno: 0, errmsg: '', data: xx }
 			errno	<==> { errno: 4031, errmsg: '验证码错误' }
-						 { errno: 4041, errmsg: '用户已注册' }
-						 { errno: 4033, errmsg: '创建账号失败' }
-						 { errno: 500, errmsg: '服务器错误' }
+				     { errno: 4041, errmsg: '用户已注册' }
+				     { errno: 4033, errmsg: '创建账号失败' }
+				     { errno: 500, errmsg: '服务器错误' }
 						 
 register_additional.php <==> 设置额外信息(创建密码) <==> request: post
 	
@@ -20,4 +20,4 @@ register_additional.php <==> 设置额外信息(创建密码) <==> request: post
 			string		passwd		<==> 密码
 	return:
 			success <==>	{ errno: 0, errmsg: '', data: xx }
-			errno	<==> { errno: 4031, errmsg: '设置密码失败' }
+			errno	<==>    { errno: 4031, errmsg: '设置密码失败' }
