@@ -15,9 +15,9 @@ register_mobileno.php <==> 注册手机号 <==> request: post
 register_additional.php <==> 设置额外信息(创建密码) <==> request: post
 	
 	receive:
-			int			uid			<==> 用户id
-			string		name		<==> 用户名
-			string		passwd		<==> 密码
+			int			uid	    <==> 用户id
+			string		name    <==> 用户名
+			string		passwd  <==> 密码
 	return:
 			success  <==>  { errno: 0, errmsg: '', data: xx }
 			fail     <==>  { errno: 4031, errmsg: '设置密码失败' }
@@ -25,7 +25,7 @@ register_additional.php <==> 设置额外信息(创建密码) <==> request: post
 send_code.php <==> 发送短信验证码 <==> request: get
 
 	receive:
-			string			mobileno  <==> 手机号码
+			string    mobileno  <==> 手机号码
 	return:
 			success  <==> { errno: 0, errmsg: '' }
 			fail     <==> { errno: 400/!0, errmsg: 发送验证码失败 }
