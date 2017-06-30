@@ -66,7 +66,19 @@ reset_password.php <==> 重置密码 <==> post
 			string    password  <==> 新密码
 	return:
 			success  <==> { errno: 0, errmsg: '' }
-			fail     <==> { errno:  } 
+			fail     <==> { errno: 4031, errmsg: '原密码错误' } 
+			              { errno: 4032, errmsg: '重置密码失败' }
+			              
+reset_mobileno <==> 重置手机号 <==> post
+	
+	receive:
+			int       uid       <==> 用户id
+			string    mobileno  <==> 手机号
+			string    note      <==> 短信验证码
+	return:
+	       success  <==> { errno: 0, errmsg: '' }
+	       fail     <==> { errno: 4031, errmsg: '验证码错误' }
+	                     { errno: 4032, errmsg: '修改手机号失败' }
 			          
 			
 			
