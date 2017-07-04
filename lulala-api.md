@@ -63,6 +63,7 @@ trace.php  <==> 实时追踪 <==> request: get
 
 	receive:
 			string imei <==> 设备imei号
+			int    uid  <==> 用户id
 			
 	return:
 			success <==> { errno: 0, errmsg: "", data:['sites':xxx, 'fence':xxx}
@@ -114,10 +115,11 @@ electric_fence.php <==> 设置电子围栏 <==> request: post
 			failed  <==> { errno: 404, errmsg: 设备不存在 }
 			             { errno: 4031, errmsg: 没有数据 }
 			             { errno: 500, errmsg: 服务器错误 }
-discard_electric_fence.php <==> 取消电子围栏 <==> request: post
+discard\_electric_fence.php <==> 取消电子围栏 <==> request: post
 
 	receive: 
 			string imei <==> 设备imei号
+			int    uid  <==> 用户id
 	return:
 			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 设备不存在 }
