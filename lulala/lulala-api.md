@@ -82,6 +82,7 @@ bind_sensor.php <==> 绑定设备 <==> request: post
 	receive:
 			int    userid <==> 用户id
 			string imei   <==> 设备imei号
+			string nick   <==> 设备昵称
 	return: 
 			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 设备不存在 }
@@ -130,7 +131,7 @@ upgrade_app <==> 检测是否要升级应用 <==> request: get
 			none
 	return:
 			succes <==> { errno: 0, errmsg: "", data:[ 'version': xxx..]
-kick.php <==> 检测是否需要被踢下线
+kick.php <==> 检测是否需要被踢下线 <==> request: get
 	
 	receive: 
 			int 	 uid	<==> 用户id(未登录时不需要传)
@@ -138,3 +139,51 @@ kick.php <==> 检测是否需要被踢下线
 	return:
 			success <==> { errno: 0, data:{ status: Y(踢下线) N(不踢）}
 			failed  <==> { errno: 4030, errmsg: 未登录 }
+change_nick.php <==> 更改设备昵称  <==> request: post
+
+	receive:
+			int    id   <==> 用户设备绑定的主键
+			string nick <==> 设备昵称
+	return:
+	      success <==> { errno: 0, errmsg: "", data:[] }
+	      failed  <==> { errno: 4031, errmsg: 修改昵称失败 }
+show_sensor.php <==> 显示设备列表 <==> request: get
+
+	receive:
+			int uid <==> 用户id
+	return:
+	       success <==> { errno: 0, errmsg: "", data:[{id:主键,nick:昵称,imei:设备号},{...},...]
+enable_alarm.php <==> 启用报警设置 <==> request: post
+	
+	receive:
+			int uid  <==> 用户id
+			int type <==> 报警类型 [按报警取值:1:围栏,2:断电,4:拔出,8:震动]
+	return:
+			success <==> { errno: 0, errmsg: "" }
+			failed  <==> { errno: 404, errmsg: 用户不存在 } (开发模式)
+			             { errno: 403, errmsg: 设置报警失败 }
+disable_alarm.php <==> 关闭报警 <==> request: post
+
+	receive:
+			int uid  <==> 用户id
+			int type <==> 报警类型 [同上]
+	return:
+			success <==> { errno: 0, errmsg: "" }
+			failed  <==> { errno: 404, errmsg: 用户不存在 } (开发模式)
+			             { errno: 403, errmsg: 关闭报警失败 }
+show_alarm_log.php <==> 显示报警列表 <==> request: get
+
+	receive:
+			int uid  <==> 用户id
+			int page <==> 页码
+	reture:
+			success <==> { errno: 0, errmsg: "", data:[{id:主键,content:报警内容,imei:设备号},{...},...] }
+remove_alarm_log.php <==> 删除某个报警记录 <==> request: post
+
+	receive:
+			int id <==> 记录主键
+	return:
+	      success <==> { errno: 0, errmsg: "", data:[] }
+	      failed  <==> { errno: 4031, errmsg: 删除记录失败 }
+				
+		
