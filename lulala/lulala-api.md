@@ -92,7 +92,7 @@ unbind_sensor.php <==> 解绑设备 <==> request: post
 	
 	receive:
 			int    userid <==> 用户id
-			array  imei   <==> 设备imei号
+			array  imeis  <==> 设备imei号集合
 	return:
 			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 设备不存在 }
