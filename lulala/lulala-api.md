@@ -53,21 +53,26 @@ logout.php  <==> 退出登录 <==> request: post
 	
 	receive:
 			int    userid  <==> 用户id
-		
 	return:
 			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 用户不存在 },
 			             { errno: 500, errmsg: 服务器错误 }
-			
-trace.php  <==> 实时追踪 <==> request: get
+trace.php  <==> 单设备追踪 <==> request: get
 
 	receive:
 			string imei <==> 设备imei号
 			int    uid  <==> 用户id
-			
 	return:
-			success <==> { errno: 0, errmsg: "", data:['sites':xxx, 'fence':xxx}
-			failed  <==> { errno: 404, errmsg: 设备不存在 }
+			success <==> { errno: 0, errmsg: "", data:[{'lat':纬度, 'lon':经度, 'sensorid':设备id, fence':围栏数据}]
+			failed  <==> { errno: 404, errmsg: 不合法的设备号 }
+			             { errno: 4031, errmsg: 用户未还未绑定设备 }
+trace_my.php <==> 多设备追踪 <==> request: get
+
+	receive:
+			int    uid <==> 用户id
+	return:
+	       success <==> { errno: 0, errmsg: "", data:[{'lat':纬度,'lon':经度,'sensorid':设备id,'fence':围栏数据},{....},...]
+	       failed  <==> { errno: 4031, errmsg: 用户还未绑定设备 }
 path_back.php <==> 路径回放 <==> request: get
 
 	receive:
