@@ -63,7 +63,7 @@ trace.php  <==> 单设备追踪 <==> request: get
 			string imei <==> 设备imei号
 			int    uid  <==> 用户id
 	return:
-			success <==> { errno: 0, errmsg: "", data:[{'lat':纬度, 'lon':经度, 'sensorid':设备id, fence':围栏数据}]
+			success <==> { errno: 0, errmsg: "", data:[{'imei':设备号, 'status':设备状态, 'temper':温度, 'gps': GPS数值, 'gsm': GSM数值, lat':纬度, 'lon':经度, 'sensorid':设备id, fence':围栏数据}]
 			failed  <==> { errno: 404, errmsg: 不合法的设备号 }
 			             { errno: 4031, errmsg: 用户未还未绑定设备 }
 trace_my.php <==> 多设备追踪 <==> request: get
@@ -71,7 +71,7 @@ trace_my.php <==> 多设备追踪 <==> request: get
 	receive:
 			int    uid <==> 用户id
 	return:
-	       success <==> { errno: 0, errmsg: "", data:[{'lat':纬度,'lon':经度,'sensorid':设备id,'fence':围栏数据},{....},...]
+	       success <==> { errno: 0, errmsg: "", data:[{'imei':设备号, 'status':设备状态, 'temper':温度, 'gps': GPS数值, 'gsm': GSM数值, lat':纬度, 'lon':经度, 'sensorid':设备id, fence':围栏数据},{....},...]
 	       failed  <==> { errno: 4031, errmsg: 用户还未绑定设备 }
 path_back.php <==> 路径回放 <==> request: get
 
@@ -176,19 +176,29 @@ disable_alarm.php <==> 关闭报警 <==> request: post
 			success <==> { errno: 0, errmsg: "" }
 			failed  <==> { errno: 404, errmsg: 用户不存在 } (开发模式)
 			             { errno: 403, errmsg: 关闭报警失败 }
-show_alarm_log.php <==> 显示报警列表 <==> request: get
+show\_alarm_log.php <==> 显示报警列表 <==> request: get
 
 	receive:
 			int uid  <==> 用户id
 			int page <==> 页码
 	reture:
 			success <==> { errno: 0, errmsg: "", data:[{id:主键,content:报警内容,imei:设备号},{...},...] }
-remove_alarm_log.php <==> 删除某个报警记录 <==> request: post
+remove\_alarm_log.php <==> 删除某个报警记录 <==> request: post
 
 	receive:
 			int id <==> 记录主键
 	return:
 	      success <==> { errno: 0, errmsg: "", data:[] }
 	      failed  <==> { errno: 4031, errmsg: 删除记录失败 }
-				
-		
+sensor\_status_statistics.php <==> 首页设备状态统计 <==> request: get
+
+	receive:
+			int uid <==> 用户id
+	return:
+			success <==> { errno: 0, errmsg: "", data:['all':全部车辆, 'online':在线,'off':断开,'malf':故障 }
+show\_alarm_setting.php <==> 显示报警设置信息 <==> request: get
+	
+	receive:
+			int uid <==> 用户id
+	return:
+			success <==> { errno: 0, errmsg: "", data: ['围栏':0|1, '断电':0|1, '拔出':0|1, '震动':0|1 } (0代表关闭|1代表启动)
