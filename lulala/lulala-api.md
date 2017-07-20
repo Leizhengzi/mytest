@@ -201,4 +201,4 @@ show\_alarm_setting.php <==> 显示报警设置信息 <==> request: get
 	receive:
 			int uid <==> 用户id
 	return:
-			success <==> { errno: 0, errmsg: "", data: ['围栏':0|1, '断电':0|1, '拔出':0|1, '震动':0|1 } (0代表关闭|1代表启动)
+			success <==> { errno: 0, errmsg: "", data: ['fence':0|1, 'off':0|1, 'out':0|1, 'shock':0|1 } (0代表关闭|1代表启动)
