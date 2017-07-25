@@ -22,3 +22,20 @@
 	#2新增接口:
             {sensor_status_statistics.php} <==> 首页设备状态统计 
             {show_alarm_setting.php}       <==> 显示报警设置信息
+            
+2017-07-25 本次更新内容
+	
+	#1规范部分接口
+	#2新增token令牌验证机制，在请求的时候需多传【userid】【token】两个参数，之前有的不需要，先统一一下用【userid】，之前是【uid】的需改下在初步涉及接口有:
+				{validate_user.php}
+				{trace.php}
+				{trace_my.php}
+				{path_back.php}
+				{bind_sensor.php}
+				{unbind_sensor.php}
+				{journey_statistics.php}
+				{electric_fence.php}
+				{discard_electric_fence.php}
+				{change_nick.php}
+				{show_sensor.php}
+	 
