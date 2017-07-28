@@ -45,13 +45,10 @@ validate_user.php <==> 修改密码第一步, 验证用户信息 <==> request: g
 	receive:
 			string  mobile <==> 手机号码
 			number  note   <==> 短信验证码
-			int     userid <==> 用户id
-			string  token  <==> 请求令牌
 	return:
 	   		success  <==> { errno: 0, errmsg: "", data: ['userid': xx] }
 	   		failed   <==> { errno: 4031, errmsg: 验证码错误 },
 	   		              { errno: 404, errmsg: 用户不存在 },
-	   		              { errno: 40311, errmsg: 无效的用户 }
 	   		              
 logout.php  <==> 退出登录 <==> request: post
 	

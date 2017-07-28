@@ -43,7 +43,6 @@ github.com  远程平台：
      git remote remove name 移除远程仓库
      git remote rename 重命名远程连接仓库  相当于移除＋创建
      git fetch 更新远程分支
-     git push origin --delete 远程分支名字
 
 远程：git fork
 
@@ -76,7 +75,7 @@ github.com  远程平台：
 
 回到客户端：
 
-     ssh-keygen -t rsa
+     ssh-keygen -t rss
      将pub文件内容copy 到 authorized_keys中
      chmod 600 authorized_keys   在改一下所属者
      chmod 700 .ssh
@@ -107,9 +106,6 @@ git查看提交日志，显现详细修改内容，如被误删的内容，可�
 
 
 
-git log --since=xxxxx --until=xxxxx 可查看从一个时间段的提交日志
-git log .file 可单查看一个文件提交的信息
-git reset 版本号 ‘file’ 可单独回滚一个文件
 
 
 
