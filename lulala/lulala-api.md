@@ -23,7 +23,7 @@ set_password.php  <==>  注册第二步|修改密码第二步, 设置密码 <==>
 			string mobileno   <==> 用户id
 			string password <==> 密码
 	return:
-			success  <==> { errno: 0, errmsg: "" } 
+			success  <==> { errno: 0, errmsg: "", data:{userid} } 
 			failed   <==> { errno: 4031, errmsg: 设置密码失败 }
 			
 login.php  <==>  登录 <==> request: post
