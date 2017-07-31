@@ -12,16 +12,15 @@ register.php  <==>  注册第一步  <==> request: post
 			string mobile  <==> 手机号码
 			number note    <==> 短信验证码
 	return:
-			success  <==> { errno: 0, errmsg: "" data: ['userid': xx] }
+			success  <==> { errno: 0, errmsg: "" }
 			failed   <==> { errno: 4031, errmsg: 验证码错误 },
 			              { errno: 4041, errmsg: 用户已注册 },
-			              { errno: 4032|4033|4034, errmsg: 用户注册失败 },
 			              { errno: 500, errmsg: 服务器异常 }
 			              
 set_password.php  <==>  注册第二步|修改密码第二步, 设置密码 <==> request: post
 
 	receive:
-			int    userid   <==> 用户id
+			string mobileno   <==> 用户id
 			string password <==> 密码
 	return:
 			success  <==> { errno: 0, errmsg: "" } 
