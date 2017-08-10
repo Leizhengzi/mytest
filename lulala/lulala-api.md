@@ -226,13 +226,3 @@ show\_alarm_setting.php <==> 显示报警设置信息 <==> request: get
 	return:
 			success <==> { errno: 0, errmsg: "", data: ['fence':0|1, 'off':0|1, 'out':0|1, 'shock':0|1 } (0代表关闭|1代表启动)
 			
-			
-			
-employeeAdd <==> 添加员工     <==> methods: post
-
-	receive:
-			int companyid <==> 公司id
-			string mobileno <==> 员工手机号
-			string name <==> 姓名
-			string address <==> 详细地址
-			
