@@ -110,3 +110,18 @@ personalShow($userid) <==> 个人信息显示 method: get
 						emal: zhangsan@outlook.com
 					}|[]
 				}
+				
+removeBinding($userid, $sensorid) <==> 删除设备|员工解除绑定 method: post
+
+		receive:
+				int		$userid   <==> 用户id 例: 821932
+				int		$sensorid <==> 设备id 例: 899843
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				fail: {
+					errno: 403, errmsg: "删除设备失败|员工解绑失败"
+				}
