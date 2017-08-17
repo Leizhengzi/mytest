@@ -111,7 +111,7 @@ personalShow($userid) <==> 个人信息显示 method: get
 					}|[]
 				}
 				
-removeBinding($userid, $sensorid) <==> 删除设备|员工解除绑定 method: post
+removeBinding($userid, $sensorid) <==> 删除设备 method: post
 
 		receive:
 				int		$userid   <==> 用户id 例: 821932
@@ -123,5 +123,44 @@ removeBinding($userid, $sensorid) <==> 删除设备|员工解除绑定 method: p
 					data: []
 				}
 				fail: {
-					errno: 403, errmsg: "删除设备失败|员工解绑失败"
+					errno: 403, errmsg: "删除设备失败"
+				}
+				
+register($mobile, $note, $cookieid, $company, $invationCode = null) <==> 验证注册信息 method: get
+
+		receive:
+				string	$mobile <==> 手机号 例: 15514790089
+				int		$note   <==> 短信验证码 例: 2341
+				string	$cookieid <==> cookie信息 例: dfkajflaidaskfd
+				string	$company <==> 公司名称 例: 科技有限公司
+				string	$invationCode <==> 邀请码
+		return: 
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				fail: {
+					errno: 4031, errmsg: "验证码错误"
+					errno: 403, errmsg: "手机号或公司已注册"
+				}
+				
+SetPassword($mobile, $password, $app, $name, $email, $company) <==> 注册用户信息入库 method: post
+
+		receive:
+				string $mobile <==> 手机号 例: 15514790089
+				string	$password <==> 密码 例: xxxxxxx
+				string	$app <==> 应用常量 例: pc
+				string	$name <==> 姓名 例: 张三
+				string	$email <==> 邮箱 例: zhangsan@outlook.com
+				string	$company <==> 公司名称 例: 科技有限公司
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: { 910291 } // 用户id
+				}
+				fail: {
+					errno: 4034, errmsg: 创建密码失败
+					errno: 500, errmsg: 注册时发生服务器内部错误
 				}
