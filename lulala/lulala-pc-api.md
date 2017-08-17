@@ -164,3 +164,22 @@ SetPassword($mobile, $password, $app, $name, $email, $company) <==> 注册用户
 					errno: 4034, errmsg: 创建密码失败
 					errno: 500, errmsg: 注册时发生服务器内部错误
 				}
+
+getSensorStatusStatistics($uid, $imei = null) <==> 获取不同状态的设备统计列表 method: get
+
+		receive:
+				int		$uid <==> 用户id 例: 89212
+				string	$imei <==> 设备号 例: 333333333333333
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data:{
+						{
+							all: {"imeis":["333333333333333"...],"count":8},
+							online: {"imeis":[],"count":0}
+							off: {"imeis":[],"count":0}
+							malf: {"imeis":[],"count":0}
+						}
+					}
+				}
