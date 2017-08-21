@@ -196,6 +196,38 @@ groupAdd($userid, $name) <==> 添加分组 method: post
 					data: []
 				}
 				fail: {
-					errno: 403, errmsg: "分组已添加，不能重复添加"
+					errno: 403, errmsg: 分组已添加，不能重复添加
 					errno: 500, errmsg: 服务器内部错误
 				}
+				
+groupChange($userid, $groupid, $name) <==> 分组修改 method: post
+
+		receive:
+				int		$userid <==> 用户id 例: 891234
+				int 	$groupid <==> 分组id 例: 21314
+				string	$name <==> 分组名称 例: LQ1
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				fail: {
+					errno: 4031, errmsg: 分组名称已存在
+					errno: 4032, errmsg: 修改分组名称失败
+				}
+				
+groupRemove($groupid) <==> 删除分组 method: post
+
+		receive:
+				int 	$groupid <==> 分组id 例: 123213
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: {321421} // 分组id
+				}
+				fail: {
+					errno: 403, errmsg: 删除分组失败
+				}
+			

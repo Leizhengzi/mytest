@@ -236,7 +236,13 @@ show\_sensors\_from_status.php <==> 根据状态显示设备列表信息 method:
 				errno: 0,
 				errmsg: "",
 				data: [
-					"695502000001144", "695502000003942", ...
+					{
+						id: 903196,
+						sensorid: 892136,
+						nick: 3333
+						imei: 333333333333333
+					},
+					...
 				]|[]
 			}
 			
