@@ -183,3 +183,19 @@ getSensorStatusStatistics($uid, $imei = null) <==> 获取不同状态的设备�
 						}
 					}
 				}
+				
+groupAdd($userid, $name) <==> 添加分组 method: post
+
+		receive:
+				int		$userid <==> 用户id 例: 89123
+				string	$name <==> 分组名称 例: LQ1
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				fail: {
+					errno: 403, errmsg: "分组已添加，不能重复添加"
+					errno: 500, errmsg: 服务器内部错误
+				}

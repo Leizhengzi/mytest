@@ -226,3 +226,17 @@ show\_alarm_setting.php <==> 显示报警设置信息 <==> request: get
 	return:
 			success <==> { errno: 0, errmsg: "", data: ['fence':0|1, 'off':0|1, 'out':0|1, 'shock':0|1 } (0代表关闭|1代表启动)
 			
+show\_sensors\_from_status.php <==> 根据状态显示设备列表信息 method: get
+
+	receive:
+			int		uid <==> 用户id 例: 896766
+			string	status <==> 状态 例: "all"|"online"|"off"|"malf"
+	return:
+			success: {
+				errno: 0,
+				errmsg: "",
+				data: [
+					"695502000001144", "695502000003942", ...
+				]|[]
+			}
+			
