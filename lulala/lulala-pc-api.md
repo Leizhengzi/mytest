@@ -50,11 +50,14 @@ bindEmail($userid, $email) <==> 绑定邮箱 method: post
 					errno: 403, errmsg: "绑定邮箱失败"
 				}
 				
-sensorShow($userid, $imei) <==> 显示设备列表 method: get
+sensorShow($userid, $imei, $groupid, $page, $spage) <==> 显示设备列表 method: get
 
 		receive:
 				int		$userid <==> 用户id 例：89776
 				string	$imei   <==> 设备号 例：333333333333333
+				int		$groupid <==> 分组id
+				int		$page <==> 页码数
+				int 	$spage <==> 每页显示函数
 		return:
 				success: {
 					errno: 0,
@@ -62,16 +65,14 @@ sensorShow($userid, $imei) <==> 显示设备列表 method: get
 					data: [{
 						id: 900398,
 						createtime: "2017-08-03 13:23:30",
-						updatetime: "2017-08-03 13:23:30",
 						imei: "695502000001144",
-						model: "jiawei",
 						imsi: "460040300601504",
-						nextver: 0,
-						flag: 0,
-						status: N,
-						is_reboot: N,
-						is_upgrade: N,
-						device_type: LQ1
+						device_type: LQ1, 设备类型
+						mobel: 宝马, 车辆类型
+						seqno: 2132132u13u21i, 车牌号码
+						auto_insurance: 2017-09-11, 车辆保险
+						frame_number: WDu23ui4, 车架号
+						address: 详细地址
 					}]|[]
 				}
 				
@@ -230,4 +231,75 @@ groupRemove($groupid) <==> 删除分组 method: post
 				fail: {
 					errno: 403, errmsg: 删除分组失败
 				}
+				
+getSensorsFromGroup($userid) <==> 分组列表显示 method: get
+
+		receive:
+				int 	$userid <==> 用户id 例: 82913
+		return: 
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: [
+						98231:{
+							imeis: [{
+								sensorid: 321312,
+								imei: 695502000001144
+							}..]
+							name: W-X1设备
+						}...]|[]
+				}
+
 			
+getUngroupedSensors($uid, $imei = null) <==> 显示未分组的设备列表 method: get
+
+		receive:
+				int		$uid <==> 用户id 例: 43123
+				string	$imei <==> 设备imei号 例: 333333333333333 支持模糊搜索
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: [{
+						sensorid: 892136,
+						imei: 333333333333333
+					},...]|[]
+				}
+				
+sensorUpdate($sensorid, $imsi, $mobel, $autoinrs, $seqno, $framenum, $remark) <==> 修改设备信息 method: post
+
+		receive: 
+				int		$sensorid <==> 设备id 例:728194
+				string	$imsi <==> 物联网卡号 例:460040300601505
+				string	$mobel <==> 车辆类型 例: 宝马X5
+				string	$autoinrs <==> 车辆保险 例: 2017-08-20
+				string	$seqno <==> 车牌号码 例: 460040300601505
+				string	$framenum <==> 车架号 例: LQ123213213
+				string	$address <==> 详细地址 例: xxxx
+		return:
+			 	success {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				failed: {
+					errno: 4031, errmsg: 修改imsi失败
+					errno: 4032, errmsg: 修改车辆信息失败
+					errno: 500, errmsg: 服务器错误
+				}
+				
+addSensorToGroup($groupid, array $sensorid) <==> 分配设备到分组中 method: post
+
+		receive:
+				int 	$groupid <==> 分组id 例: 892182
+				array	$sensorid <==> 设备id集合 例: [394019,3820184]
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				failed: {
+					errno: 500,
+					errmsg: 服务器错误
+				}

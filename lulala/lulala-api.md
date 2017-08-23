@@ -17,7 +17,7 @@ register.php  <==>  注册第一步  <==> request: post
 			              { errno: 4041, errmsg: 用户已注册 },
 			              { errno: 500, errmsg: 服务器异常 }
 			              
-set_password.php  <==>  注册第二步|修改密码第二步, 设置密码 <==> request: post
+set_password.php  <==>  注册第二步设置密码 <==> request: post
 
 	receive:
 			string mobileno   <==> 用户id
@@ -244,5 +244,20 @@ show\_sensors\_from_status.php <==> 根据状态显示设备列表信息 method:
 					},
 					...
 				]|[]
+			}
+			
+forget_password.php <==> 忘记密码的重置密码 method: post
+
+	receive:
+			int		userid <==> 用户id 例: 896776
+			string	password <==> 密码 例: dafjruewriejksjfk
+	return: 
+			success: {
+				errno: 0,
+				errmsg: "",
+				data: []
+			}
+			failed: {
+				errno: 403, errmsg: 修改密码失败
 			}
 			
