@@ -303,3 +303,20 @@ addSensorToGroup($groupid, array $sensorid) <==> 分配设备到分组中 method
 					errno: 500,
 					errmsg: 服务器错误
 				}
+				
+removeSensorFromGroup($userid, $sensorid) <==> 删除组内的设备 method: post
+
+		receive: 
+				int 	$userid <==> 用户id 例: 89218
+				int		$sensorid <==> 设备id 例: 89131
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				failed: {
+					errno: 403,
+					errmsg: 删除失败
+				}
+		

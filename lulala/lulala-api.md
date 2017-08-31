@@ -261,3 +261,32 @@ forget_password.php <==> 忘记密码的重置密码 method: post
 				errno: 403, errmsg: 修改密码失败
 			}
 			
+ebike\_dynamic_logging.php <==> 添加车辆的动态使用信息 method: post
+
+	receive:
+			int		userid <==> 用户id 例: 899176
+			string	serial <==> 扫码的号码 例: Lq890da8f
+			string	flag <==> 状态标识 例: USE | BACK
+	return:
+			success: {
+				errno: 0,
+				errmsg: "",
+				data: "695502000003942"
+			}
+			failed: {
+				errno: 403, errmsg: 无效的序列号
+				errno: 500, errmsg: 服务器内部错误
+			}
+			
+using\_ebike_info.php <==> 显示使用的车辆信息 method: get
+
+	receive:
+			int		userid <==> 用户id 例: 899176	return: 
+			success: {
+				errno: 0,
+				errmsg: "",
+				data: {
+					imei:"333333333333333", // 设备号
+					frame_number:"LQ2213214821" // 车架号
+				}|[] 
+			}
