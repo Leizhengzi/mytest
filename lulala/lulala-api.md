@@ -177,6 +177,7 @@ show_sensor.php <==> 显示设备列表 <==> request: get
 
 	receive:
 			int    userid <==> 用户id
+			string	name <==> 搜索名称
 			string token  <==> 请求令牌
 	return:
 	       success <==> { errno: 0, errmsg: "", data:[{id:主键,nick:昵称,imei:设备号},{...},...]
