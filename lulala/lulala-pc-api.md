@@ -320,3 +320,48 @@ removeSensorFromGroup($userid, $sensorid) <==> 删除组内的设备 method: pos
 					errmsg: 删除失败
 				}
 		
+employeeAdd($companyid, $mobileno, $name, $address) <==> 员工添加 method: post
+
+		receive:
+				int		$companyid <==> 公司id 例: 12345
+				int 	$mobileno <==> 手机号 例: 12345678098
+				string	$name <==> 姓名 例: 张三
+				string	$address <==> 地址 例: 北清路
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				failed: {
+					errno: 4030, errmsg: 员工已添加，不能重复添加
+					errno: 500, errmsg: 服务器错误
+					
+				}
+	
+employeeRemove($emp_id) <==> 员工删除 method: post
+
+		receive:
+				int		$emp_id <==> 员工id 例: 1232132
+		return:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: []
+				}
+				failed: {
+					errno: 500, errmsg: 服务器错误
+				}
+				
+employees($userid) <==> 显示员工列表 method: get
+		
+		receive: 
+				int		$userid <==> 当前登录账号id
+		returen:
+				success: {
+					errno: 0,
+					errmsg: "",
+					data: {xxxx}
+				}
+				
+			
